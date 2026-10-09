@@ -12,6 +12,10 @@ Packager: Issabel Foundation
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 Obsoletes: elastix-portknock
 
+# En EL10 rpmbuild genera subpaquetes -debuginfo/-debugsource; el debugsource
+# queda vacio y aborta el build. No se empaquetan simbolos de depuracion.
+%global debug_package %{nil}
+
 %description
 This is a simple program to implement a single-packet authentication system for
 Issabel on selected network interfaces. This program only verifies that the 
